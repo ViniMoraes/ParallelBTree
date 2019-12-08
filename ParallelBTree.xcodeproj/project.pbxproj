@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		81D4C489239C6C5300D40E84 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 81D4C488239C6C5300D40E84 /* main.cpp */; };
+		EBF341F1239D9CD3002BB5BE /* Btree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EBF341EF239D9CD3002BB5BE /* Btree.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +26,8 @@
 /* Begin PBXFileReference section */
 		81D4C485239C6C5300D40E84 /* ParallelBTree */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ParallelBTree; sourceTree = BUILT_PRODUCTS_DIR; };
 		81D4C488239C6C5300D40E84 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		EBF341EF239D9CD3002BB5BE /* Btree.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Btree.cpp; sourceTree = "<group>"; };
+		EBF341F0239D9CD3002BB5BE /* Btree.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Btree.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +61,8 @@
 			isa = PBXGroup;
 			children = (
 				81D4C488239C6C5300D40E84 /* main.cpp */,
+				EBF341EF239D9CD3002BB5BE /* Btree.cpp */,
+				EBF341F0239D9CD3002BB5BE /* Btree.hpp */,
 			);
 			path = ParallelBTree;
 			sourceTree = "<group>";
@@ -118,6 +123,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBF341F1239D9CD3002BB5BE /* Btree.cpp in Sources */,
 				81D4C489239C6C5300D40E84 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -240,7 +246,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 692KNU3J2Q;
+				DEVELOPMENT_TEAM = D3Q7SCBCML;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -249,7 +255,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 692KNU3J2Q;
+				DEVELOPMENT_TEAM = D3Q7SCBCML;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
