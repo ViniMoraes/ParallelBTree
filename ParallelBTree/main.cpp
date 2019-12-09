@@ -6,82 +6,59 @@
 
 using namespace std;
 
+void compareTrees(int keys, int searchs);
+
 // Driver program to test above functions
 int main()
 {
     srand (time(NULL));
     
-    BTree bt(3);
-    ParallelBTree pbt(3); // A B-Tree with minium degree 3
+    compareTrees(10, 5);
+    compareTrees(100, 50);
+    compareTrees(1000, 500);
+    compareTrees(10000, 5000);
+    compareTrees(100000, 50000);
+    compareTrees(1000000, 500000);
     
-    for(int i = 0; i < 10000; i++){
+    cout << endl;
+    
+    return 0;
+}
+
+void compareTrees(int keys, int searchs){
+    
+    BTree bt(3);
+    ParallelBTree pbt(3);
+    
+    for(int i = 0; i < keys; i++){
         int value = rand() % 2000 - 1000;
         bt.insert(value);
         pbt.insert(value);
     }
     
-//     Code to check both trees have same results
-//    (bt.search(-100) != NULL)? cout << "Found\t" : cout << "Not Found\t";
-//    (bt.search(-100) != NULL)? cout << "Found" : cout << "Not Found";
-//    cout << endl;
-//
-//    (bt.search(-10) != NULL)? cout << "Found\t" : cout << "Not Found\t";
-//    (bt.search(-10) != NULL)? cout << "Found" : cout << "Not Found";
-//    cout << endl;
-//
-//    (bt.search(-500) != NULL)? cout << "Found\t" : cout << "Not Found\t";
-//    (bt.search(-500) != NULL)? cout << "Found" : cout << "Not Found";
-//    cout << endl;
-//
-//    (bt.search(598) != NULL)? cout << "Found\t" : cout << "Not Found\t";
-//    (bt.search(598) != NULL)? cout << "Found" : cout << "Not Found";
-//    cout << endl;
-//
-//    (bt.search(999) != NULL)? cout << "Found\t" : cout << "Not Found\t";
-//    (bt.search(999) != NULL)? cout << "Found" : cout << "Not Found";
-//    cout << endl;
-//
-//    (bt.search(0) != NULL)? cout << "Found\t" : cout << "Not Found\t";
-//    (bt.search(0) != NULL)? cout << "Found" : cout << "Not Found";
-//    cout << endl;
+    int searchValues[searchs];
+    for(int i = 0; i < searchs; i++){
+        searchValues[i] = rand() % 10000 - 5000; // -5000 ~ 5000
+    }
     
     clock_t begin = clock();
     
-    bt.search(-100);
-    bt.search(500);
-    bt.search(123);
-    bt.search(157);
-    bt.search(999);
-    bt.search(-4);
-    bt.search(0);
-    bt.search(456);
-    bt.search(-879);
-    bt.search(-90);
-    
+    for(int i = 0; i < searchs; i++){
+        bt.search(searchValues[i]);
+    }
     clock_t end = clock();
     double btElapsedTime = double(end - begin) / CLOCKS_PER_SEC;
     
     begin = clock();
     
-    pbt.search(-100);
-    pbt.search(500);
-    pbt.search(123);
-    pbt.search(157);
-    pbt.search(999);
-    pbt.search(-4);
-    pbt.search(0);
-    pbt.search(456);
-    pbt.search(-879);
-    pbt.search(-90);
-    
+    for(int i = 0; i < searchs; i++){
+        pbt.search(searchValues[i]);
+    }
     end = clock();
     double pbtElapsedTime = double(end - begin) / CLOCKS_PER_SEC;
     
-    cout << "Time elapsed:" << endl;
+    cout << "Time elapsed for " << keys << " keys and " << searchs << " searchs:" << endl;
     cout << "BTree: " << btElapsedTime << endl;
     cout << "Parallel BTree: " << pbtElapsedTime << endl;
-    
     cout << endl;
-    
-    return 0;
 }
